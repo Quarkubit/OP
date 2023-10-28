@@ -7,6 +7,40 @@
 #define MAX_COLS 5
 
 //распределяем клетки(живой/мёртвый)
+int generate_random(int max);
+
+// генерируем поле
+void create_grid(int grid[MAX_ROWS][MAX_COLS]);
+
+// выводим поле
+void print_grid(int grid[MAX_ROWS][MAX_COLS]);
+
+// начинаем игру
+void game_of_life(int grid[MAX_ROWS][MAX_COLS]);
+
+
+
+int main() {
+    int grid[MAX_ROWS][MAX_COLS];
+    int generation = 0;
+    srand(time(NULL));
+    create_grid(grid);
+    printf("Generation %d\n", generation);
+    print_grid(grid);
+    while (1) {
+        char choice;
+        printf("Next generation? ( Y / N ): ");
+        scanf(" %c", &choice);
+        if (choice == 'n') 
+            break;
+        game_of_life(grid);
+        printf("Generation %d\n", ++generation);
+        print_grid(grid);
+    }
+    return 0;
+}
+
+//распределяем клетки(живой/мёртвый)
 int generate_random(int max) {
     return rand() % max;
 }
@@ -49,12 +83,14 @@ void game_of_life(int grid[MAX_ROWS][MAX_COLS]) {
                     count += grid[nx][ny];//т.к. живая клетка = 1
                 }
             }
+            //проверка живой клетки
             if (grid[i][j] == 1) {
                 if (count < 2 || count > 3) {
                     next_grid[i][j] = 0;
                 } else {
                     next_grid[i][j] = 1;
                 }
+            //проверка мёртвой клетки
             } else {
                 if (count == 3) {
                     next_grid[i][j] = 1;
@@ -70,22 +106,4 @@ void game_of_life(int grid[MAX_ROWS][MAX_COLS]) {
             grid[i][j] = next_grid[i][j];
         }
     }
-}
-int main() {
-    int grid[MAX_ROWS][MAX_COLS];
-    int generation = 0;
-    srand(time(NULL));
-    create_grid(grid);
-    printf("Generation %d\n", generation);
-    print_grid(grid);
-    while (1) {
-        char choice;
-        printf("Generate next generation? (y/n): ");
-        scanf(" %c", &choice);
-        if (choice == 'n') break;
-        game_of_life(grid);
-        printf("Generation %d\n", ++generation);
-        print_grid(grid);
-    }
-    return 0;
 }
