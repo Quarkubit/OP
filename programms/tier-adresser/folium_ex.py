@@ -10,7 +10,7 @@ comment_2='Центр Москвы'
 folium.Marker([55.66999523743406, 37.48029973770085],popup=comment, tooltip=tooltip).add_to(m)
 folium.Marker([55.753732, 37.621070],popup=comment_2, tooltip=tooltip_2).add_to(m)
 
-m.save('programms/tier-adresser/name.html')
+m.save('programms/tier-adresser/folium_ex.html')
 
 #55.740739, 37.861690   дом
 #55.753732, 37.621070   центр

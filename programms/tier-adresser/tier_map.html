@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_f32e0394735ceb23efdf8132c41f7ad7 {
+                #map_5445f5817c429d81ec872b16a5e4c28c {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,14 +39,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_f32e0394735ceb23efdf8132c41f7ad7" ></div>
+            <div class="folium-map" id="map_5445f5817c429d81ec872b16a5e4c28c" ></div>
         
 </body>
 <script>
     
     
-            var map_f32e0394735ceb23efdf8132c41f7ad7 = L.map(
-                "map_f32e0394735ceb23efdf8132c41f7ad7",
+            var map_5445f5817c429d81ec872b16a5e4c28c = L.map(
+                "map_5445f5817c429d81ec872b16a5e4c28c",
                 {
                     center: [55.753732, 37.62107],
                     crs: L.CRS.EPSG3857,
@@ -60,21 +60,49 @@
 
         
     
-            var tile_layer_daebc47dd5e039713e2c0f7769e0415f = L.tileLayer(
+            var tile_layer_627b3a0f4bdc7bf1d83d3c338b06ebec = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-                tile_layer_daebc47dd5e039713e2c0f7769e0415f.addTo(map_f32e0394735ceb23efdf8132c41f7ad7);
+                tile_layer_627b3a0f4bdc7bf1d83d3c338b06ebec.addTo(map_5445f5817c429d81ec872b16a5e4c28c);
     
-            var marker_f14aef9bda2bf0060de62e2e5f9c974d = L.marker(
+            var marker_b26467203207aeaf4df373cd6f26adff = L.marker(
                 [55.7516212, 37.618122044334896],
                 {}
-            ).addTo(map_f32e0394735ceb23efdf8132c41f7ad7);
+            ).addTo(map_5445f5817c429d81ec872b16a5e4c28c);
         
     
-            marker_f14aef9bda2bf0060de62e2e5f9c974d.bindTooltip(
+            marker_b26467203207aeaf4df373cd6f26adff.bindTooltip(
+                `<div>
+                     Московский Кремль, Чудовская улица, 18, 19, Тверской район, Москва, Россия
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e60eaca6bf4247a2b5529e5af94d628a = L.marker(
+                [55.670699549999995, 37.481520301654314],
+                {}
+            ).addTo(map_5445f5817c429d81ec872b16a5e4c28c);
+        
+    
+            marker_e60eaca6bf4247a2b5529e5af94d628a.bindTooltip(
+                `<div>
+                     МИРЭА — Российский технологический университет, проспект Вернадского, Тропарёво-Никулино, район Проспект Вернадского, Москва, Россия
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b380a0b875374a692a7dadb646a60acc = L.marker(
+                [55.7516212, 37.618122044334896],
+                {}
+            ).addTo(map_5445f5817c429d81ec872b16a5e4c28c);
+        
+    
+            marker_b380a0b875374a692a7dadb646a60acc.bindTooltip(
                 `<div>
                      Московский Кремль, Чудовская улица, 18, 19, Тверской район, Москва, Россия
                  </div>`,

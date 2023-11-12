@@ -28,7 +28,7 @@ def group_addresses(addresses):
         db_address, time_window = address
         if time_window!='24' and time_window!='0':
             begin_time, end_time = parse_time_window(time_window)
-        elif time_window!='0':
+        elif time_window=='0':
             standart_group.append(db_address)
             continue
         else:
