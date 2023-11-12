@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_aa95e8ee8e00334881c9e8a91c5371de {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_aa95e8ee8e00334881c9e8a91c5371de" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_aa95e8ee8e00334881c9e8a91c5371de = L.map(
+                "map_aa95e8ee8e00334881c9e8a91c5371de",
+                {
+                    center: [55.753732, 37.62107],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_961ee5ade5cbb78c3f37b5c21ca34728 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+                tile_layer_961ee5ade5cbb78c3f37b5c21ca34728.addTo(map_aa95e8ee8e00334881c9e8a91c5371de);
+    
+            var marker_a7a8aacfe89694630382ac87bc09b4ab = L.marker(
+                [55.66999523743406, 37.48029973770085],
+                {}
+            ).addTo(map_aa95e8ee8e00334881c9e8a91c5371de);
+        
+    
+        var popup_e8153fcbc961a843476c3b1e5bf703e7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a66a7fa664cf911e33725d9e571175ca = $(`<div id="html_a66a7fa664cf911e33725d9e571175ca" style="width: 100.0%; height: 100.0%;">Лучший институт москвы</div>`)[0];
+                popup_e8153fcbc961a843476c3b1e5bf703e7.setContent(html_a66a7fa664cf911e33725d9e571175ca);
+            
+        
+
+        marker_a7a8aacfe89694630382ac87bc09b4ab.bindPopup(popup_e8153fcbc961a843476c3b1e5bf703e7)
+        ;
+
+        
+    
+    
+            marker_a7a8aacfe89694630382ac87bc09b4ab.bindTooltip(
+                `<div>
+                     РТУ МИРЭА
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_985d62d649e935c2efd0ceb1bc7936bc = L.marker(
+                [55.753732, 37.62107],
+                {}
+            ).addTo(map_aa95e8ee8e00334881c9e8a91c5371de);
+        
+    
+        var popup_0f2d7ea4081c0761a571043c716bddfd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9b792c1dab2ee423ac003532a7db642e = $(`<div id="html_9b792c1dab2ee423ac003532a7db642e" style="width: 100.0%; height: 100.0%;">Центр Москвы</div>`)[0];
+                popup_0f2d7ea4081c0761a571043c716bddfd.setContent(html_9b792c1dab2ee423ac003532a7db642e);
+            
+        
+
+        marker_985d62d649e935c2efd0ceb1bc7936bc.bindPopup(popup_0f2d7ea4081c0761a571043c716bddfd)
+        ;
+
+        
+    
+    
+            marker_985d62d649e935c2efd0ceb1bc7936bc.bindTooltip(
+                `<div>
+                     Центр
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

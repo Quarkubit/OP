@@ -16,8 +16,8 @@ def parse_time_window(time_window):
 
 def group_addresses(addresses):
     early_group = []
+    standart_group = []
     late_group = []
-    indefinite_group = []
 
     for address in addresses:
         db_address, time_window = address
@@ -25,17 +25,17 @@ def group_addresses(addresses):
             begin_time, end_time = parse_time_window(time_window)
         else:
             early_group.append(db_address)
-            indefinite_group.append(db_address)
+            late_group.append(db_address)
             continue
 
         if end_time <= datetime.strptime('13.00', '%H.%M'):
             early_group.append(db_address)
         elif end_time <= datetime.strptime('18.00', '%H.%M'):
-            late_group.append(db_address)
+            standart_group.append(db_address)
         else:
-            indefinite_group.append(db_address)
+            late_group.append(db_address)
 
-    return early_group, late_group, indefinite_group
+    return early_group, standart_group, late_group
 
 def spliter(n):
     a, b=n.split(' ')
@@ -44,24 +44,26 @@ def spliter(n):
 addresses = []
 
 print('Введите адрес и через пробел временное окно(через дефис в формате часы.минуты-часы.минуты)\n\t(для круглосуточного адресса введите 24)\n\t!!!минуты указывать обезательно!!!\n\t  !введите 0 для конца записи!\n')
+counter=0
 while 1:
     x=input()
     if x == '0':
         break
+    counter+=1
     x=spliter(x)
     addresses.append(x)
 print('\n-------------------------\n')
 
-early_group, late_group, indefinite_group = group_addresses(addresses)
+early_group, standart_group, late_group = group_addresses(addresses)
 
 print('Ранняя группа:')
 for address in early_group:
     print(address)
 
 print('\nСтандартная группа:')
-for address in late_group:
+for address in standart_group:
     print(address)
 
 print('\nпоздняя группа:')
-for address in indefinite_group:
+for address in late_group:
     print(address)
