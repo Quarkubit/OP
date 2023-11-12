@@ -1,14 +1,17 @@
 from datetime import datetime, timedelta
 
 def parse_time_window(time_window):
-    if time_window == '24':
-        begin_time, end_time='0.00-23.59'.split('-')
-        begin_time = datetime.strptime(begin_time, '%H.%M')
-        end_time = datetime.strptime(end_time, '%H.%M')
-        return begin_time, end_time
     begin_time, end_time = time_window.split('-')
-    begin_time = datetime.strptime(begin_time, '%H.%M')
-    end_time = datetime.strptime(end_time, '%H.%M')
+    if '.'in begin_time:
+        begin_time = datetime.strptime(begin_time, '%H.%M')
+    else:
+        begin_time+='.00'
+        begin_time = datetime.strptime(begin_time, '%H.%M')
+    if '.'in end_time:
+        end_time = datetime.strptime(end_time, '%H.%M')
+    else:
+        end_time+='.00'
+        end_time = datetime.strptime(end_time, '%H.%M')
     return begin_time, end_time
 
 def group_addresses(addresses):
@@ -18,11 +21,16 @@ def group_addresses(addresses):
 
     for address in addresses:
         db_address, time_window = address
-        begin_time, end_time = parse_time_window(time_window)
+        if time_window!='24':
+            begin_time, end_time = parse_time_window(time_window)
+        else:
+            early_group.append(db_address)
+            indefinite_group.append(db_address)
+            continue
 
         if end_time <= datetime.strptime('13.00', '%H.%M'):
             early_group.append(db_address)
-        elif end_time <= datetime.strptime('20.00', '%H.%M'):
+        elif end_time <= datetime.strptime('18.00', '%H.%M'):
             late_group.append(db_address)
         else:
             indefinite_group.append(db_address)
@@ -42,6 +50,7 @@ while 1:
         break
     x=spliter(x)
     addresses.append(x)
+print('\n-------------------------\n')
 
 early_group, late_group, indefinite_group = group_addresses(addresses)
 
@@ -49,10 +58,10 @@ print('Ранняя группа:')
 for address in early_group:
     print(address)
 
-print('\nПоздняя группа:')
+print('\nСтандартная группа:')
 for address in late_group:
     print(address)
 
-print('\nБессрочная группа:')
+print('\nпоздняя группа:')
 for address in indefinite_group:
     print(address)
