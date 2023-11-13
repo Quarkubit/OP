@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_5445f5817c429d81ec872b16a5e4c28c {
+                #map_6d8aca1cab99ddaf4bdcc61eec9f879a {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,14 +39,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_5445f5817c429d81ec872b16a5e4c28c" ></div>
+            <div class="folium-map" id="map_6d8aca1cab99ddaf4bdcc61eec9f879a" ></div>
         
 </body>
 <script>
     
     
-            var map_5445f5817c429d81ec872b16a5e4c28c = L.map(
-                "map_5445f5817c429d81ec872b16a5e4c28c",
+            var map_6d8aca1cab99ddaf4bdcc61eec9f879a = L.map(
+                "map_6d8aca1cab99ddaf4bdcc61eec9f879a",
                 {
                     center: [55.753732, 37.62107],
                     crs: L.CRS.EPSG3857,
@@ -60,51 +60,29 @@
 
         
     
-            var tile_layer_627b3a0f4bdc7bf1d83d3c338b06ebec = L.tileLayer(
+            var tile_layer_1c7d5ae3bf2aafd96d4f786abd96296d = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-                tile_layer_627b3a0f4bdc7bf1d83d3c338b06ebec.addTo(map_5445f5817c429d81ec872b16a5e4c28c);
+                tile_layer_1c7d5ae3bf2aafd96d4f786abd96296d.addTo(map_6d8aca1cab99ddaf4bdcc61eec9f879a);
     
-            var marker_b26467203207aeaf4df373cd6f26adff = L.marker(
-                [55.7516212, 37.618122044334896],
+            var marker_ff1731201293444d45396ac8a3cc32cb = L.marker(
+                [55.7390918, 37.54392259260505],
                 {}
-            ).addTo(map_5445f5817c429d81ec872b16a5e4c28c);
+            ).addTo(map_6d8aca1cab99ddaf4bdcc61eec9f879a);
         
     
-            marker_b26467203207aeaf4df373cd6f26adff.bindTooltip(
-                `<div>
-                     Московский Кремль, Чудовская улица, 18, 19, Тверской район, Москва, Россия
-                 </div>`,
-                {"sticky": true}
+            var icon_219c324e6b38e27d7ffd8d0b688ffb87 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
             );
+            marker_ff1731201293444d45396ac8a3cc32cb.setIcon(icon_219c324e6b38e27d7ffd8d0b688ffb87);
         
     
-            var marker_e60eaca6bf4247a2b5529e5af94d628a = L.marker(
-                [55.670699549999995, 37.481520301654314],
-                {}
-            ).addTo(map_5445f5817c429d81ec872b16a5e4c28c);
-        
-    
-            marker_e60eaca6bf4247a2b5529e5af94d628a.bindTooltip(
+            marker_ff1731201293444d45396ac8a3cc32cb.bindTooltip(
                 `<div>
-                     МИРЭА — Российский технологический университет, проспект Вернадского, Тропарёво-Никулино, район Проспект Вернадского, Москва, Россия
-                 </div>`,
-                {"sticky": true}
-            );
-        
-    
-            var marker_b380a0b875374a692a7dadb646a60acc = L.marker(
-                [55.7516212, 37.618122044334896],
-                {}
-            ).addTo(map_5445f5817c429d81ec872b16a5e4c28c);
-        
-    
-            marker_b380a0b875374a692a7dadb646a60acc.bindTooltip(
-                `<div>
-                     Московский Кремль, Чудовская улица, 18, 19, Тверской район, Москва, Россия
+                     33 к3, Студенческая улица, район Дорогомилово, Москва, Россия
                  </div>`,
                 {"sticky": true}
             );

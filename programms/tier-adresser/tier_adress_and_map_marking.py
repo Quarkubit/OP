@@ -23,6 +23,7 @@ def group_addresses(addresses):
     early_group = []
     standart_group = []
     late_group = []
+    round_the_clock_group=[]
 
     for address in addresses:
         db_address, time_window = address
@@ -32,18 +33,17 @@ def group_addresses(addresses):
             standart_group.append(db_address)
             continue
         else:
-            early_group.append(db_address)
-            late_group.append(db_address)
+            round_the_clock_group.append(db_address)
             continue
 
-        if end_time <= datetime.strptime('13.00', '%H.%M'):
+        if end_time <= datetime.strptime('13.00', '%H.%M') and begin_time < datetime.strptime('13.00', '%H.%M'):
             early_group.append(db_address)
-        elif end_time <= datetime.strptime('18.00', '%H.%M'):
+        elif end_time <= datetime.strptime('18.00', '%H.%M') and begin_time < datetime.strptime('18.00', '%H.%M'):
             standart_group.append(db_address)
         else:
             late_group.append(db_address)
 
-    return early_group, standart_group, late_group
+    return early_group, standart_group, late_group, round_the_clock_group
 
 def spliter(n):
     a, b=n.split('!')
@@ -51,7 +51,7 @@ def spliter(n):
 
 addresses = []
 
-print('\nВведите адрес(через , без пробелов) и через ! временное окно(через дефис в формате часы.минуты-часы.минуты)\n\t---для круглосуточного адреса введите 24---\n\t---для адреса без временного окна введите 0---\n\nПример:\nМосковский Кремль, Чудовская улица, 18, 19, Тверской район, Москва, Россия!24\n\n\t  !введите 0 для конца записи!\n')
+print('\nВведите адрес(через , без пробелов) и через ! временное окно(через дефис в формате часы.минуты-часы.минуты)\n\t---для круглосуточного адреса введите 24---\n\t---для адреса без временного окна введите 0---\n\nПримеры:\nМосковский Кремль, Чудовская улица, 18, 19, Тверской район, Москва, Россия!24\n33 к3, Студенческая улица, район Дорогомилово, Москва, Россия!0\n\n\t  !введите 0 для конца записи!\n')
 counter=0
 while 1:
     x=input()
@@ -62,7 +62,7 @@ while 1:
     addresses.append(x)
 print('\n-------------------------')
 
-early_group, standart_group, late_group = group_addresses(addresses)
+early_group, standart_group, late_group, round_the_clock_group = group_addresses(addresses)
 
 #добавить разный цвет/иконки маркерам
 print('Ранняя группа:')
@@ -72,7 +72,9 @@ for address in early_group:
     coordinates.append(float(location['lat']))
     coordinates.append(float(location['lon']))
     tooltip=address
-    folium.Marker(coordinates, tooltip=tooltip).add_to(m)
+    folium.Marker(coordinates, tooltip=tooltip,icon = folium.Icon(color='green')).add_to(m)
+    print(address)
+for address in round_the_clock_group:
     print(address)
 
 print('\nСтандартная группа:')
@@ -82,7 +84,7 @@ for address in standart_group:
     coordinates.append(float(location['lat']))
     coordinates.append(float(location['lon']))
     tooltip=address
-    folium.Marker(coordinates, tooltip=tooltip).add_to(m)
+    folium.Marker(coordinates, tooltip=tooltip, icon = folium.Icon(color='blue')).add_to(m)
     print(address)
 
 print('\nПоздняя группа:')
@@ -92,7 +94,15 @@ for address in late_group:
     coordinates.append(float(location['lat']))
     coordinates.append(float(location['lon']))
     tooltip=address
-    folium.Marker(coordinates, tooltip=tooltip).add_to(m)
+    folium.Marker(coordinates, tooltip=tooltip, icon = folium.Icon(color='red')).add_to(m)
     print(address)
-
+for address in round_the_clock_group:
+    location=nominaltim.geocode(address).raw
+    coordinates=[]
+    coordinates.append(float(location['lat']))
+    coordinates.append(float(location['lon']))
+    tooltip=address
+    folium.Marker(coordinates, tooltip=tooltip,icon = folium.Icon(color='purple')).add_to(m)
+    print(address)
+    
 m.save('programms/tier-adresser/tier_map.html')
