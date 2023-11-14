@@ -40,6 +40,6 @@ shortest_route = nx.shortest_path(graph, orig_node,dest_node, weight=optimizer)
 
 print('\n\n\n\t---start ploting---\n\n\n')
 
-ox.graph_to_gdfs(G, nodes=False).explore()
+ox.graph_to_gdfs(graph, nodes=False).explore()
 
 print('\n\n\n\t---end---\n\n\n')
