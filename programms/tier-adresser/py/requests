@@ -1,2 +1,0 @@
-pip install OSMnx scikit-learn matplotlib mapclassify
-pip install folium
